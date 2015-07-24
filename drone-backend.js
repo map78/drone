@@ -33,31 +33,31 @@ function fly(robot) {
     after(5.8*1000, function () {
         bot.drone.front(0.1)
     });
-    after(12*1000, function () {
+    after(9*1000, function () {
         bot.drone.front(0)
     });
-    after(12*1000, function() {
-        bot.drone.right(0.1)
+    after(9*1000, function() {
+        bot.drone.right(0.2)
     });
-    after(13*1000, function() {
+    after(10*1000, function() {
         bot.drone.right(0)
     });
-    after(13*1000, function() {
+    after(10*1000, function() {
         bot.drone.back(0.1)
     });
-    after(20*1000, function() {
+    after(14*1000, function() {
         bot.drone.back(0)
     });
-    after(20*1000, function() {
+    after(14*1000, function() {
         bot.drone.left(0.1)
     });
-    after(21*1000, function() {
+    after(15*1000, function() {
         bot.drone.left(0)
     });
-    after(22*1000, function() {
+    after(16*1000, function() {
         bot.drone.land();
     });
-    after(30*1000, function() {
+    after(20*1000, function() {
         bot.drone.stop();
     });
 }
