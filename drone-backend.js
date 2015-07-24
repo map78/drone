@@ -12,11 +12,32 @@ Cylon.robot()
         driver: "ardrone",
         connection: "ardrone"
     })
+    .device("nav", {
+        driver: "ardrone-nav",
+        connection: "ardrone"
+    })
     .on("ready", fly);
     
 // Fly the bot
 function fly(robot) {
-
+    bot = robot;
+    bot.drone.disableEmergency();
+    bot.drone.ftrim()
+    bot.drone.takeoff();
+    bot.drone.front(1);
+    after(10*1000, function() {
+        bot.drone.land();
+    });
+    after(15*1000, function() {
+        bot.drone.stop();
+    });
 }
 
 Cylon.start();
+
+robot.drone.takeoff();
+
+bot.nav.on("navdata", function(data) {
+    console.log(data);
+});
+
