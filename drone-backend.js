@@ -24,7 +24,7 @@ function fly(robot) {
     bot.drone.disableEmergency();
     bot.drone.ftrim();
     bot.drone.takeoff();
-    after(5.5*1000, function () {
+    after(5*1000, function () {
         bot.drone.left(0.1)
     });
     after(6*1000, function() {
