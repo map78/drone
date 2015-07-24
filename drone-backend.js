@@ -22,9 +22,17 @@ Cylon.robot()
 function fly(robot) {
     bot = robot;
     bot.drone.disableEmergency();
-    bot.drone.ftrim()
+    bot.drone.ftrim();
     bot.drone.takeoff();
-    bot.drone.front(1);
+    after(takeoff, function () {
+        bot.drone.front(0.2)
+    });
+    after(3*1000, function() {
+        bot.drone.right(0.2)
+    });
+    after(3*1000, function() {
+        bot.drone.back(0.2)
+    });
     after(10*1000, function() {
         bot.drone.land();
     });
@@ -35,7 +43,7 @@ function fly(robot) {
 
 Cylon.start();
 
-robot.drone.takeoff();
+//robot.drone.takeoff();
 
 bot.nav.on("navdata", function(data) {
     console.log(data);
